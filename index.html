@@ -1,0 +1,390 @@
+<!DOCTYPE html> 
+<html lang="bs">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoTech – Pametni sistem za praćenje kvaliteta zraka</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("IOweP2zNlXV6tYOC7");
+})();
+</script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#000000,#1a0d00);
+color:#f5f5f5;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:linear-gradient(90deg,#000000,#1a0d00);
+border-bottom:2px solid #ff7a00;
+z-index:1000;
+height:80px;
+}
+
+.logo-img{
+height:80px;
+object-fit:contain;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#f5f5f5;
+transition:0.3s;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#ff7a00;
+text-shadow:0 0 10px #ff7a00;
+}
+
+/* HEADER */
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#000000,#ff3c00,#ff9500);
+padding:20px;
+}
+
+header h1{
+font-size:48px;
+max-width:900px;
+margin-bottom:20px;
+}
+
+header p{
+font-size:20px;
+opacity:0.9;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1200px;
+margin:auto;
+padding:120px 20px;
+}
+
+h2{
+text-align:center;
+font-size:36px;
+margin-bottom:50px;
+color:#ff9500;
+}
+
+/* AKTIVNOSTI */
+
+.aktivnost{
+background:#111;
+border:1px solid #ff6a00;
+padding:30px;
+border-radius:20px;
+margin-bottom:40px;
+}
+
+.aktivnost h3{
+font-size:26px;
+margin-bottom:15px;
+color:#ff9500;
+}
+
+.aktivnost p{
+line-height:1.6;
+margin-bottom:10px;
+}
+
+/* NOVA GALERIJA */
+
+.galerija{
+column-count:3;
+column-gap:15px;
+margin-bottom:20px;
+}
+
+@media (max-width:900px){
+.galerija{column-count:2;}
+}
+
+@media (max-width:600px){
+.galerija{column-count:1;}
+}
+
+.galerija img{
+width:100%;
+margin-bottom:15px;
+border-radius:10px;
+transition:0.3s;
+break-inside:avoid;
+}
+
+.galerija img:hover{
+transform:scale(1.05);
+}
+
+/* ADMIN */
+
+#admin input,#admin textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ff6a00;
+border-radius:10px;
+background:#0a0a0a;
+color:white;
+}
+
+#admin button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#ff6a00,#ff9500);
+color:black;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:#000;
+text-align:center;
+padding:30px;
+color:#888;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<img src="logo.png" class="logo-img">
+
+<ul class="nav-links">
+
+<li><a href="#proizvod">Naš proizvod</a></li>
+<li><a href="#kako">Kako funkcioniše</a></li>
+<li><a href="#aktivnosti">Aktivnosti</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+
+</ul>
+
+</nav>
+
+<header>
+
+<h1>Pametni IoT sistem za praćenje kvaliteta zraka</h1>
+
+<p>Precizno. Edukativno. Ekološki odgovorno.</p>
+
+</header>
+
+<section id="proizvod">
+
+<h2>Naš proizvod</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;">
+
+EcoTech je pametni uređaj koji u realnom vremenu prati kvalitet zraka
+koristeći moderne IoT senzore. Podaci se šalju u cloud gdje se analiziraju
+i prikazuju korisnicima putem web platforme.
+
+</p>
+
+<img src="uredjaj.jpg" style="display:block;margin:40px auto;max-width:500px;border-radius:15px;">
+
+</section>
+
+<section id="kako">
+
+<h2>Kako funkcioniše</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;">
+
+Uređaj koristi senzore za mjerenje čestica u zraku, temperature i vlage.
+Podaci se šalju putem interneta u bazu gdje se analiziraju i prikazuju
+u realnom vremenu na web aplikaciji.
+
+</p>
+
+<img src="ekran.jpg" style="display:block;margin:40px auto;max-width:500px;border-radius:15px;">
+
+</section>
+
+<section id="aktivnosti">
+
+<h2>Aktivnosti firme</h2>
+
+<div id="aktivnostiContainer"></div>
+
+</section>
+
+<section id="kontakt">
+
+<h2>Kontakt</h2>
+
+<p style="text-align:center;">Email: info@ecotech.ba</p>
+
+</section>
+
+<section id="admin">
+
+<h2>Admin panel</h2>
+
+<input id="naslov" type="text" placeholder="Naslov aktivnosti">
+
+<textarea id="opis" rows="6" placeholder="Tekst aktivnosti"></textarea>
+
+<input id="slike" type="file" accept="image/*" multiple>
+
+<button id="insert">DODAJ AKTIVNOST</button>
+
+</section>
+
+<footer>
+
+© <span id="year"></span> Nihad Mehmedović
+
+</footer>
+
+<script>
+
+document.getElementById("year").innerText = new Date().getFullYear();
+
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBoKQZQxQP9PNyclbutXS39kPfgYs3komg",
+authDomain: "senzormania-928de.firebaseapp.com",
+projectId: "senzormania-928de",
+storageBucket: "senzormania-928de.firebasestorage.app",
+messagingSenderId: "453171984292",
+appId: "1:453171984292:web:d3552eaa61bb7d818fb331"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const container = document.getElementById("aktivnostiContainer");
+const insert = document.getElementById("insert");
+
+function compressImage(file,maxWidth=1200,quality=0.7){
+return new Promise(resolve=>{
+const img=new Image();
+const reader=new FileReader();
+reader.onload=e=>img.src=e.target.result;
+img.onload=()=>{
+const canvas=document.createElement("canvas");
+const scale=Math.min(1,maxWidth/img.width);
+canvas.width=img.width*scale;
+canvas.height=img.height*scale;
+canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+resolve(canvas.toDataURL("image/jpeg",quality));
+};
+reader.readAsDataURL(file);
+});
+}
+
+function createHTML(data){
+
+const imgs=(data.slike||[])
+.map(u=>`<img src="${u}" style="height:${200+Math.random()*200}px">`)
+.join("");
+
+const txt=(data.tekst||[]).map(p=>`<p>${p}</p>`).join("");
+
+return `
+<div class="aktivnost">
+<h3>${data.naslov}</h3>
+<div class="galerija">
+${imgs}
+</div>
+${txt}
+</div>
+`;
+}
+
+insert.onclick=async()=>{
+
+const naslov=document.getElementById("naslov").value;
+const opis=document.getElementById("opis").value.split("\n").filter(p=>p.trim());
+const files=document.getElementById("slike").files;
+
+if(!naslov||!opis.length)return alert("Popuni sva polja");
+
+const slike=[];
+
+for(let f of files) slike.push(await compressImage(f));
+
+await addDoc(collection(db,"aktivnosti"),{
+naslov,
+tekst:opis,
+slike,
+timestamp:Date.now()
+});
+
+container.innerHTML+=createHTML({naslov,tekst:opis,slike});
+
+};
+
+async function load(){
+
+const snap=await getDocs(collection(db,"aktivnosti"));
+
+snap.forEach(d=>container.innerHTML+=createHTML(d.data()));
+
+}
+
+load();
+
+</script>
+
+</body>
+</html>
